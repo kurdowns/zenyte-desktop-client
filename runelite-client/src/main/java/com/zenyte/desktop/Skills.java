@@ -1,0 +1,51 @@
+package com.zenyte.desktop;
+
+import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.rs.api.RSSkills;
+
+@ObfuscatedName("ho")
+public class Skills implements RSSkills {
+	@ObfuscatedName("m")
+	public static final boolean[] Skills_enabled;
+	@ObfuscatedName("k")
+	public static int[] Skills_experienceTable;
+
+	static {
+		Skills_enabled = new boolean[]{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false};
+		Skills_experienceTable = new int[99];
+		int var0 = 0;
+
+		for (int var1 = 0; var1 < 99; ++var1) {
+			int var2 = var1 + 1;
+			int var3 = (int)((double)var2 + 300.0D * Math.pow(2.0D, (double)var2 / 7.0D));
+			var0 += var3;
+			Skills_experienceTable[var1] = var0 / 4;
+		}
+
+	}
+
+	@ObfuscatedName("z")
+	@ObfuscatedSignature(
+		signature = "(I)[Lle;",
+		garbageValue = "1434727833"
+	)
+	public static IndexedSprite[] method4190() {
+		IndexedSprite[] var0 = new IndexedSprite[class335.SpriteBuffer_spriteCount];
+
+		for (int var1 = 0; var1 < class335.SpriteBuffer_spriteCount; ++var1) {
+			IndexedSprite var2 = var0[var1] = new IndexedSprite();
+			var2.width = class335.SpriteBuffer_spriteWidth;
+			var2.height = class335.SpriteBuffer_spriteHeight;
+			var2.xOffset = class335.SpriteBuffer_xOffsets[var1];
+			var2.yOffset = StructDefinition.SpriteBuffer_yOffsets[var1];
+			var2.subWidth = class335.SpriteBuffer_spriteWidths[var1];
+			var2.subHeight = class335.SpriteBuffer_spriteHeights[var1];
+			var2.palette = DefaultsGroup.SpriteBuffer_spritePalette;
+			var2.pixels = class4.SpriteBuffer_pixels[var1];
+		}
+
+		Ignored.method5211();
+		return var0;
+	}
+}
